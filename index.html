@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sedona Quantum Consciousness Retreat | Mark Szymczak</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #F9F7F5;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .section {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        #heroCanvas, #propertyCanvas, #experienceCanvas {
+            display: block;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            color: #F9F7F5;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        h1 {
+            font-size: 4rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            animation: fadeInDown 1.5s ease-out 0.5s both;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+            margin-bottom: 3rem;
+            animation: fadeInUp 1.5s ease-out 0.8s both;
+        }
+
+        .cta-button {
+            padding: 1.2rem 2.5rem;
+            font-size: 1.1rem;
+            background: linear-gradient(135deg, #DAA520, #A0522D);
+            color: #F9F7F5;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+            box-shadow: 0 10px 30px rgba(160, 82, 45, 0.3);
+            animation: fadeInUp 1.5s ease-out 1.1s both;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(160, 82, 45, 0.5);
+        }
+
+        /* Founder Section */
+        #founderSection {
+            background: linear-gradient(135deg, #5B4C6E, #3a3147);
+        }
+
+        .founder-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            max-width: 1200px;
+            z-index: 10;
+        }
+
+        .founder-text h2 {
+            font-size: 2.5rem;
+            color: #DAA520;
+            margin-bottom: 1.5rem;
+        }
+
+        .founder-text p {
+            font-size: 1.1rem;
+            color: #F9F7F5;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Property Sections */
+        .property-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            max-width: 1200px;
+            z-index: 10;
+        }
+
+        .property-card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2rem;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .property-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(160, 82, 45, 0.3);
+        }
+
+        .property-card h3 {
+            font-size: 1.8rem;
+            color: #A0522D;
+            margin-bottom: 1rem;
+        }
+
+        /* Experience Cards Grid */
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            z-index: 10;
+        }
+
+        .experience-card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .experience-card:hover {
+            transform: rotateY(10deg) translateY(-10px);
+            box-shadow: 0 20px 60px rgba(160, 82, 45, 0.3);
+        }
+
+        .experience-card h3 {
+            color: #A0522D;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .experience-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Technology Section */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            z-index: 10;
+        }
+
+        .tech-item {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .tech-item:hover {
+            transform: rotateX(10deg) translateY(-10px);
+            background: rgba(217, 165, 32, 0.1);
+        }
+
+        .tech-item h3 {
+            color: #A0522D;
+            margin-bottom: 1rem;
+        }
+
+        /* Testimonials */
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            z-index: 10;
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2rem;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(160, 82, 45, 0.3);
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .testimonial-author {
+            color: #A0522D;
+            font-weight: bold;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .subtitle { font-size: 1.1rem; }
+            .property-grid, .founder-content {
+                grid-template-columns: 1fr;
+            }
+            .experience-grid, .tech-grid, .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Reduce motion */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+            }
+        }
+
+        .no-webgl {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.8);
+            color: #F9F7F5;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            z-index: 100;
+        }
+    </style>
+</head>
+<body>
+
+<!-- HERO SECTION -->
+<section id="heroSection" class="section">
+    <canvas id="heroCanvas"></canvas>
+    <div class="content">
+        <h1>Sedona Quantum Consciousness</h1>
+        <p class="subtitle">Transform Your Being</p>
+        <button class="cta-button">Begin Your Journey</button>
+    </div>
+</section>
+
+<!-- MARK SZYMCZAK FOUNDER SECTION -->
+<section id="founderSection" class="section">
+    <canvas id="founderCanvas"></canvas>
+    <div class="founder-content content">
+        <div class="founder-text">
+            <h2>Mark Szymczak</h2>
+            <h3 style="color: #DAA520; margin-bottom: 2rem;">Founder & Guide</h3>
+            <p>Mark Szymczak has spent two decades exploring the intersection of consciousness, quantum physics, and human potential. His vision is to create sanctuaries where scientific discovery meets spiritual transformation.</p>
+            <p>At Sedona Quantum Consciousness, every experience is designed to expand your awareness and reconnect you with your highest self.</p>
+        </div>
+        <div id="founderCanvas3D"></div>
+    </div>
+</section>
+
+<!-- CANYON ROSE SECTION -->
+<section id="canyonRoseSection" class="section" style="background: linear-gradient(135deg, #f5f1ed, #e8e1da);">
+    <canvas id="canyonCanvas"></canvas>
+    <div class="content">
+        <h2 style="color: #A0522D; font-size: 2.5rem; margin-bottom: 3rem;">Canyon Rose Estate</h2>
+        <div class="property-grid">
+            <div class="property-card">
+                <h3>Master Suite</h3>
+                <p>Luxurious accommodations with panoramic views of the canyon. Premium bedding, heated stone floors, and natural light that transforms with the sun.</p>
+            </div>
+            <div class="property-card">
+                <h3>Spa Sanctuary</h3>
+                <p>Private spa experience featuring infrared saunas, hydrotherapy pools, and energy healing chambers designed for deep regeneration.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- DESERT ROSE SECTION -->
+<section id="desertRoseSection" class="section" style="background: linear-gradient(135deg, #faf8f5, #f0ebe5);">
+    <canvas id="desertCanvas"></canvas>
+    <div class="content">
+        <h2 style="color: #5B4C6E; font-size: 2.5rem; margin-bottom: 3rem;">Desert Rose Community</h2>
+        <div class="property-grid">
+            <div class="property-card">
+                <h3>Infinity Pool</h3>
+                <p>Overlooking the sacred landscape. Meditative water features that sync with circadian rhythms. The pool reflects the sky throughout the day.</p>
+            </div>
+            <div class="property-card">
+                <h3>Gathering Spaces</h3>
+                <p>Outdoor amphitheater, meditation gardens, and fire circle. Designed for group transformation and shared awakening experiences.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- EXPERIENCES SECTION -->
+<section id="experiencesSection" class="section" style="background: linear-gradient(135deg, #f9f7f5, #ede9e2);">
+    <canvas id="experienceCanvas"></canvas>
+    <div class="content">
+        <h2 style="color: #A0522D; font-size: 2.5rem; margin-bottom: 3rem;">Transformative Experiences</h2>
+        <div class="experience-grid">
+            <div class="experience-card">
+                <h3>🧘 Quantum Meditation</h3>
+                <p>Deep meditation protocols guided by Mark Szymczak, designed to access expanded states of consciousness and quantum coherence.</p>
+            </div>
+            <div class="experience-card">
+                <h3>✨ Energy Healing</h3>
+                <p>Ancient techniques combined with modern biohacking. Rebalance your energy field and activate dormant potentials.</p>
+            </div>
+            <div class="experience-card">
+                <h3>🌿 Bioacoustic Therapy</h3>
+                <p>Immersive sound baths using frequencies calibrated to Sedona's natural energy vortex. Experience sonic healing.</p>
+            </div>
+            <div class="experience-card">
+                <h3>💎 Consciousness Activation</h3>
+                <p>Intensive workshops exploring the nature of consciousness, quantum physics, and human potential expansion.</p>
+            </div>
+            <div class="experience-card">
+                <h3>🌞 Sunrise Rituals</h3>
+                <p>Sacred ceremonies timed to natural cycles. Align with cosmic energy and set intentions for transformation.</p>
+            </div>
+            <div class="experience-card">
+                <h3>🏔️ Sacred Land Journeys</h3>
+                <p>Guided explorations of Sedona's vortex points and energy centers. Deepen your connection to Earth's consciousness.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TECHNOLOGY SECTION -->
+<section id="technologySection" class="section" style="background: linear-gradient(135deg, #5B4C6E, #3a3147);">
+    <canvas id="techCanvas"></canvas>
+    <div class="content">
+        <h2 style="color: #DAA520; font-size: 2.5rem; margin-bottom: 3rem;">Cutting-Edge Technology</h2>
+        <div class="tech-grid">
+            <div class="tech-item">
+                <h3>🔬 Light Bed Therapy</h3>
+                <p>Bio-photon technology stimulates cellular regeneration and activates dormant DNA sequences. Experience cellular rejuvenation.</p>
+            </div>
+            <div class="tech-item">
+                <h3>🌡️ Far-Infrared Sauna</h3>
+                <p>Penetrates 1.5" below skin surface. Detoxification, circulation, and immune enhancement in a private healing chamber.</p>
+            </div>
+            <div class="tech-item">
+                <h3>💧 Structured Water System</h3>
+                <p>Proprietary vortex technology that restructures water at the molecular level. Drink transformed, coherent water.</p>
+            </div>
+            <div class="tech-item">
+                <h3>🎵 Frequency Generators</h3>
+                <p>Scalar wave and Rife frequency technology calibrated to quantum consciousness states. Harmonic wellness.</p>
+            </div>
+            <div class="tech-item">
+                <h3>🧬 Biometric Scanning</h3>
+                <p>Real-time health monitoring. Personalize your experience based on live biometric feedback and energy signatures.</p>
+            </div>
+            <div class="tech-item">
+                <h3>🌐 Quantum Field Generator</h3>
+                <p>Creates coherence fields that synchronize your biology with Sedona's natural quantum environment.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TESTIMONIALS SECTION -->
+<section id="testimonialsSection" class="section" style="background: linear-gradient(135deg, #f9f7f5, #ede9e2);">
+    <div class="content">
+        <h2 style="color: #A0522D; font-size: 2.5rem; margin-bottom: 3rem;">Guest Testimonials</h2>
+        <div class="testimonial-grid">
+            <div class="testimonial-card">
+                <p>"My week at Sedona Quantum transformed my entire perspective on consciousness. The integration of science and spirituality is remarkable."</p>
+                <p class="testimonial-author">— Dr. Sarah Chen, Neuroscientist</p>
+            </div>
+            <div class="testimonial-card">
+                <p>"Mark's guidance and the cutting-edge technology created an experience I couldn't have imagined. Truly life-changing."</p>
+                <p class="testimonial-author">— James Mitchell, CEO</p>
+            </div>
+            <div class="testimonial-card">
+                <p>"The combination of ancient wisdom and modern science feels like the future of wellness. I'm already planning my return."</p>
+                <p class="testimonial-author">— Elena Rossi, Wellness Advocate</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FINAL CTA SECTION -->
+<section id="ctaSection" class="section">
+    <canvas id="ctaCanvas"></canvas>
+    <div class="content">
+        <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Begin Your Transformation</h2>
+        <p class="subtitle">Limited Availability | Premium Retreats</p>
+        <button class="cta-button">Reserve Your Experience</button>
+    </div>
+</section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+// ===== UTILITY FUNCTIONS =====
+function createScene(canvasId, bgColor = 0x000000) {
+    const canvas = document.getElementById(canvasId);
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 10000);
+    const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+    
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setClearColor(bgColor, 1);
+    renderer.shadowMap.enabled = true;
+    renderer.shadowMap.type = THREE.PCFShadowShadowMap;
+    
+    scene.background = new THREE.Color(bgColor);
+    
+    return { scene, camera, renderer };
+}
+
+function addLighting(scene, colors = {}) {
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+    scene.add(ambientLight);
+    
+    const directionalLight = new THREE.DirectionalLight(colors.main || 0xffffff, 0.8);
+    directionalLight.position.set(10, 20, 10);
+    directionalLight.castShadow = true;
+    directionalLight.shadow.mapSize.width = 2048;
+    directionalLight.shadow.mapSize.height = 2048;
+    scene.add(directionalLight);
+    
+    if (colors.accent) {
+        const accentLight = new THREE.PointLight(colors.accent, 0.5);
+        accentLight.position.set(-10, 15, 5);
+        scene.add(accentLight);
+    }
+    
+    return { ambientLight, directionalLight };
+}
+
+// ===== HERO SECTION =====
+function initHeroSection() {
+    const { scene, camera, renderer } = createScene('heroCanvas', 0x1a1a2e);
+    camera.position.z = 30;
+    
+    addLighting(scene, { main: 0xFF9800, accent: 0xDAA520 });
+    
+    // Create canyon mountains using THREE geometry
+    const mountainGeometry = new THREE.ConeGeometry(20, 40, 32);
+    const mountainMaterial = new THREE.MeshStandardMaterial({ 
+        color: 0xA0522D, 
+        roughness: 0.8, 
+        metalness: 0.2 
+    });
+    const mountain1 = new THREE.Mesh(mountainGeometry, mountainMaterial);
+    mountain1.position.set(-25, 5, -10);
+    mountain1.castShadow = true;
+    mountain1.receiveShadow = true;
+    scene.add(mountain1);
+    
+    const mountain2 = new THREE.Mesh(mountainGeometry, mountainMaterial);
+    mountain2.position.set(25, -5, -15);
+    mountain2.scale.set(0.8, 1.2, 0.8);
+    mountain2.castShadow = true;
+    mountain2.receiveShadow = true;
+    scene.add(mountain2);
+    
+    // Sky gradient (simulated with mesh)
+    const skyGeometry = new THREE.SphereGeometry(100, 64, 64);
+    const skyMaterial = new THREE.MeshBasicMaterial({
+        color: 0x2d1b4e,
+        side: THREE.BackSide
+    });
+    const sky = new THREE.Mesh(skyGeometry, skyMaterial);
+    scene.add(sky);
+    
+    // Particles for atmosphere
+    const particlesGeometry = new THREE.BufferGeometry();
+    const particlesCount = 500;
+    const posArray = new Float32Array(particlesCount * 3);
+    
+    for (let i = 0; i < particlesCount * 3; i += 3) {
+        posArray[i] = (Math.random() - 0.5) * 100;
+        posArray[i + 1] = (Math.random() - 0.5) * 100;
+        posArray[i + 2] = (Math.random() - 0.5) * 100;
+    }
+    
+    particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+    const particlesMaterial = new THREE.PointsMaterial({ 
+        size: 0.5, 
+        color: 0xDAA520,
+        opacity: 0.6,
+        transparent: true
+    });
+    const particles = new THREE.Points(particlesGeometry, particlesMaterial);
+    scene.add(particles);
+    
+    let mouseX = 0, mouseY = 0;
+    document.addEventListener('mousemove', (e) => {
+        mouseX = (e.clientX / window.innerWidth) * 2 - 1;
+        mouseY = (e.clientY / window.innerHeight) * 2 - 1;
+    });
+    
+    let time = 0;
+    function animateHero() {
+        requestAnimationFrame(animateHero);
+        
+        time += 0.005;
+        
+        // Subtle camera movement based on mouse
+        camera.position.x = mouseX * 3;
+        camera.position.y = -mouseY * 2;
+        
+        // Rotate mountains
+        mountain1.rotation.z += 0.0001;
+        mountain2.rotation.z -= 0.00015;
+        
+        // Animate particles
+        particles.rotation.z += 0.0001;
+        particles.rotation.x += 0.0001;
+        
+        // Pulsing light
+        const light = scene.children.find(c => c.isLight && c.isDirectionalLight);
+        if (light) {
+            light.intensity = 0.8 + 0.2 * Math.sin(time * 2);
+        }
+        
+        renderer.render(scene, camera);
+    }
+    
+    animateHero();
+    
+    // Handle window resize
+    window.addEventListener('resize', () => {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+}
+
+// ===== FOUNDER SECTION =====
+function initFounderSection() {
+    const canvas = document.getElementById('founderCanvas');
+    if (!canvas) return;
+    
+    const { scene, camera, renderer } = createScene('founderCanvas', 0x3a3147);
+    camera.position.z = 25;
+    
+    addLighting(scene, { main: 0xDAA520, accent: 0xA0522D });
+    
+    // Abstract consciousness visualization (floating geometric shapes)
+    const shapes = [];
+    
+    // Create rotating icosahedron (consciousness symbol)
+    const icoGeometry = new THREE.IcosahedronGeometry(5, 4);
+    const icoMaterial = new THREE.MeshStandardMaterial({ 
+        color: 0xDAA520,
+        emissive: 0xDAA520,
+        emissiveIntensity: 0.5,
+        metalness: 0.7,
+        roughness: 0.3
+    });
+    const ico = new THREE.Mesh(icoGeometry, icoMaterial);
+    ico.position.set(0, 0, -5);
+    scene.add(ico);
+    shapes.push(ico);
+    
+    // Floating particles around founder portrait
+    const particlesGeometry = new THREE.BufferGeometry();
+    const particlesCount = 800;
+    const posArray = new Float32Array(particlesCount * 3);
+    
+    for (let i = 0; i < particlesCount * 3; i += 3) {
+        posArray[i] = (Math.random() - 0.5) * 50;
+        posArray[i + 1] = (Math.random() - 0.5) * 50;
+        posArray[i + 2] = (Math.random() - 0.5) * 50;
+    }
+    
+    particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+    const particlesMaterial = new THREE.PointsMaterial({ 
+        size: 0.3, 
+        color: 0xDAA520,
+        opacity: 0.8,
+        transparent: true
+    });
+    const particles = new THREE.Points(particlesGeometry, particlesMaterial);
+    scene.add(particles);
+    
+    let time = 0;
+    function animateFounder() {
+        requestAnimationFrame(animateFounder);
+        
+        time += 0.003;
+        
+        // Rotate main shape
+        ico.rotation.x += 0.002;
+        ico.rotation.y += 0.003;
+        ico.position.y = Math.sin(time * 2) * 2;
+        
+        // Orbit smaller shapes around center
+        particles.rotation.z += 0.0005;
+        
+        renderer.render(scene, camera);
+    }
+    
+    animateFounder();
+}
+
+// ===== CANYON ROSE SECTION =====
+function initCanyonSection() {
+    const canvas = document.getElementById('canyonCanvas');
+    if (!canvas) return;
+    
+    const { scene, camera, renderer } = createScene('canyonCanvas', 0xe8e1da);
+    camera.position.z = 40;
+    
+    addLighting(scene, { main: 0xA0522D, accent: 0xDAA520 });
+    
+    // Building represented as geometric shapes
+    const buildingGroup = new THREE.Group();
+    
+    // Main structure
+    const mainGeometry = new THREE.BoxGeometry(15, 20, 12);
+    const mainMaterial = new THREE.MeshStandardMaterial({
+        color: 0xA0522D,
+        roughness: 0.6,
+        metalness: 0.3
+    });
+    const mainStructure = new THREE.Mesh(mainGeometry, mainMaterial);
+    mainStructure.castShadow = true;
+    mainStructure.receiveShadow = true;
+    buildingGroup.add(mainStructure);
+    
+    // Roof
+    const roofGeometry = new THREE.ConeGeometry(12, 5, 4);
+    const roofMaterial = new THREE.MeshStandardMaterial({
+        color: 0x8B4513,
+        roughness: 0.7
+    });
+    const roof = new THREE.Mesh(roofGeometry, roofMaterial);
+    roof.position.y = 12;
+    roof.castShadow = true;
+    buildingGroup.add(roof);
+    
+    // Windows
+    for (let i = 0; i < 3; i++) {
+        const windowGeometry = new THREE.PlaneGeometry(2, 2);
+        const windowMaterial = new THREE.MeshStandardMaterial({
+            color: 0xFFA500,
+            emissive: 0xFFA500,
+            emissiveIntensity: 0.5
+        });
+        const window = new THREE.Mesh(windowGeometry, windowMaterial);
+        window.position.set(-6 + i * 6, 5, 6);
+        buildingGroup.add(window);
+    }
+    
+    buildingGroup.position.set(0, 0, 0);
+    scene.add(buildingGroup);
+    
+    // Surrounding landscape
+    const groundGeometry = new THREE.PlaneGeometry(100, 100);
+    const groundMaterial = new THREE.MeshStandardMaterial({
+        color: 0xD2B48C,
+        roughness: 0.9
+    });
+    const ground = new THREE.Mesh(groundGeometry, groundMaterial);
+    ground.rotation.x = -Math.PI / 2;
+    ground.position.y = -15;
+    ground.receiveShadow = true;
+    scene.add(ground);
+    
+    let time = 0;
+    function animateCanyon() {
+        requestAnimationFrame(animateCanyon);
+        
+        time += 0.005;
+        
+        // Subtle rotation
+        buildingGroup.rotation.y += 0.0005;
+        buildingGroup.position.y = Math.sin(time) * 1;
+        
+        renderer.render(scene, camera);
+    }
+    
+    animateCanyon();
+}
+
+// ===== DESERT ROSE SECTION =====
+function initDesertSection() {
+    const canvas = document.getElementById('desertCanvas');
+    if (!canvas) return;
+    
+    const { scene, camera, renderer } = createScene('desertCanvas', 0xf0ebe5);
+    camera.position.z = 50;
+    
+    addLighting(scene, { main: 0xA0522D, accent: 0xDAA520 });
+    
+    // Pool (water)
+    const poolGeometry = new THREE.PlaneGeometry(30, 20);
+    const poolMaterial = new THREE.MeshStandardMaterial({
+        color: 0x4A90E2,
+        metalness: 0.8,
+        roughness: 0.1
+    });
+    const pool = new THREE.Mesh(poolGeometry, poolMaterial);
+    pool.rotation.x = -Math.PI / 4;
+    pool.position.set(0, 0, -10);
+    pool.castShadow = true;
+    pool.receiveShadow = true;
+    scene.add(pool);
+    
+    // Landscape elements (trees represented as cones)
+    for (let i = 0; i < 5; i++) {
+        const treeGeometry = new THREE.ConeGeometry(3, 8, 8);
+        const treeMaterial = new THREE.MeshStandardMaterial({ color: 0x228B22 });
+        const tree = new THREE.Mesh(treeGeometry, treeMaterial);
+        tree.position.set(
+            -25 + i * 12,
+            0,
+            -15 - Math.random() * 20
+        );
+        tree.castShadow = true;
+        scene.add(tree);
+    }
+    
+    // Ground
+    const groundGeometry = new THREE.PlaneGeometry(150, 150);
+    const groundMaterial = new THREE.MeshStandardMaterial({
+        color: 0xDEB887,
+        roughness: 0.9
+    });
+    const ground = new THREE.Mesh(groundGeometry, groundMaterial);
+    ground.rotation.x = -Math.PI / 2;
+    ground.position.y = -10;
+    ground.receiveShadow = true;
+    scene.add(ground);
+    
+    let time = 0;
+    function animateDesert() {
+        requestAnimationFrame(animateDesert);
+        
+        time += 0.003;
+        
+        // Water ripple effect
+        pool.material.roughness = 0.1 + 0.05 * Math.sin(time * 3);
+        
+        renderer.render(scene, camera);
+    }
+    
+    animateDesert();
+}
+
+// ===== TECHNOLOGY SECTION =====
+function initTechSection() {
+    const canvas = document.getElementById('techCanvas');
+    if (!canvas) return;
+    
+    const { scene, camera, renderer } = createScene('techCanvas', 0x3a3147);
+    camera.position.z = 30;
+    
+    addLighting(scene, { main: 0xDAA520, accent: 0xA0522D });
+    
+    // Tech items as rotating cubes/spheres
+    const items = [];
+    
+    for (let i = 0; i < 3; i++) {
+        const geometry = i % 2 === 0 ? 
+            new THREE.BoxGeometry(5, 5, 5) : 
+            new THREE.IcosahedronGeometry(3, 2);
+        
+        const material = new THREE.MeshStandardMaterial({
+            color: i % 2 === 0 ? 0xDAA520 : 0xA0522D,
+            emissive: i % 2 === 0 ? 0xDAA520 : 0xA0522D,
+            emissiveIntensity: 0.3,
+            metalness: 0.6,
+            roughness: 0.4
+        });
+        
+        const mesh = new THREE.Mesh(geometry, material);
+        mesh.position.set(-15 + i * 15, 0, 0);
+        mesh.castShadow = true;
+        mesh.receiveShadow = true;
+        scene.add(mesh);
+        items.push(mesh);
+    }
+    
+    let time = 0;
+    function animateTech() {
+        requestAnimationFrame(animateTech);
+        
+        time += 0.005;
+        
+        items.forEach((item, index) => {
+            item.rotation.x += 0.01;
+            item.rotation.y += 0.015;
+            item.position.y = Math.sin(time + index) * 3;
+        });
+        
+        renderer.render(scene, camera);
+    }
+    
+    animateTech();
+}
+
+// ===== FINAL CTA SECTION =====
+function initCtaSection() {
+    const canvas = document.getElementById('ctaCanvas');
+    if (!canvas) return;
+    
+    const { scene, camera, renderer } = createScene('ctaCanvas', 0x1a1a2e);
+    camera.position.z = 40;
+    
+    addLighting(scene, { main: 0xDAA520, accent: 0xA0522D });
+    
+    // Massive particle field
+    const particlesGeometry = new THREE.BufferGeometry();
+    const particlesCount = 2000;
+    const posArray = new Float32Array(particlesCount * 3);
+    const colorArray = new Float32Array(particlesCount * 3);
+    
+    for (let i = 0; i < particlesCount * 3; i += 3) {
+        posArray[i] = (Math.random() - 0.5) * 150;
+        posArray[i + 1] = (Math.random() - 0.5) * 150;
+        posArray[i + 2] = (Math.random() - 0.5) * 150;
+        
+        colorArray[i] = Math.random() * 0.5 + 0.5;
+        colorArray[i + 1] = Math.random() * 0.3;
+        colorArray[i + 2] = Math.random() * 0.5 + 0.5;
+    }
+    
+    particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+    particlesGeometry.setAttribute('color', new THREE.BufferAttribute(colorArray, 3));
+    
+    const particlesMaterial = new THREE.PointsMaterial({
+        size: 0.4,
+        vertexColors: true,
+        opacity: 0.7,
+        transparent: true
+    });
+    
+    const particles = new THREE.Points(particlesGeometry, particlesMaterial);
+    scene.add(particles);
+    
+    // Central glowing sphere
+    const sphereGeometry = new THREE.SphereGeometry(10, 32, 32);
+    const sphereMaterial = new THREE.MeshStandardMaterial({
+        color: 0xDAA520,
+        emissive: 0xDAA520,
+        emissiveIntensity: 0.8,
+        metalness: 0.5,
+        roughness: 0.3
+    });
+    const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
+    scene.add(sphere);
+    
+    let time = 0;
+    function animateCta() {
+        requestAnimationFrame(animateCta);
+        
+        time += 0.003;
+        
+        particles.rotation.x += 0.0002;
+        particles.rotation.y += 0.0003;
+        
+        sphere.scale.set(
+            1 + 0.3 * Math.sin(time),
+            1 + 0.3 * Math.sin(time),
+            1 + 0.3 * Math.sin(time)
+        );
+        
+        renderer.render(scene, camera);
+    }
+    
+    animateCta();
+}
+
+// ===== EXPERIENCE SECTION =====
+function initExperienceSection() {
+    const canvas = document.getElementById('experienceCanvas');
+    if (!canvas) return;
+    
+    const { scene, camera, renderer } = createScene('experienceCanvas', 0xede9e2);
+    camera.position.z = 35;
+    
+    addLighting(scene, { main: 0xA0522D, accent: 0xDAA520 });
+    
+    // Floating cards (represented as boxes)
+    const cards = [];
+    const positions = [
+        { x: -20, y: 10, z: 0 },
+        { x: 0, y: 15, z: 5 },
+        { x: 20, y: 10, z: -5 }
+    ];
+    
+    positions.forEach((pos, index) => {
+        const geometry = new THREE.BoxGeometry(6, 6, 1);
+        const material = new THREE.MeshStandardMaterial({
+            color: index % 2 === 0 ? 0xA0522D : 0x5B4C6E,
+            emissive: index % 2 === 0 ? 0xA0522D : 0x5B4C6E,
+            emissiveIntensity: 0.2,
+            metalness: 0.4,
+            roughness: 0.5
+        });
+        const card = new THREE.Mesh(geometry, material);
+        card.position.set(pos.x, pos.y, pos.z);
+        card.castShadow = true;
+        card.receiveShadow = true;
+        scene.add(card);
+        cards.push({ mesh: card, baseY: pos.y });
+    });
+    
+    let time = 0;
+    function animateExperience() {
+        requestAnimationFrame(animateExperience);
+        
+        time += 0.004;
+        
+        cards.forEach((card, index) => {
+            card.mesh.rotation.x += 0.008;
+            card.mesh.rotation.y += 0.012;
+            card.mesh.position.y = card.baseY + Math.sin(time + index) * 2;
+        });
+        
+        renderer.render(scene, camera);
+    }
+    
+    animateExperience();
+}
+
+// ===== INITIALIZATION =====
+document.addEventListener('DOMContentLoaded', () => {
+    // Check WebGL support
+    const canvas = document.createElement('canvas');
+    const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+    
+    if (!gl) {
+        document.body.innerHTML += '<div class="no-webgl">Your browser does not support WebGL. Please use a modern browser (Chrome, Firefox, Safari, or Edge).</div>';
+        return;
+    }
+    
+    // Initialize all sections with staggered timing
+    initHeroSection();
+    setTimeout(() => initFounderSection(), 100);
+    setTimeout(() => initCanyonSection(), 200);
+    setTimeout(() => initDesertSection(), 300);
+    setTimeout(() => initExperienceSection(), 350);
+    setTimeout(() => initTechSection(), 400);
+    setTimeout(() => initCtaSection(), 500);
+});
+
+// Scroll animations
+window.addEventListener('scroll', () => {
+    const scrolled = window.scrollY;
+    const sections = document.querySelectorAll('.section');
+    
+    sections.forEach((section, index) => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.offsetHeight;
+        const sectionCenter = sectionTop + sectionHeight / 2;
+        const windowCenter = scrolled + window.innerHeight / 2;
+        
+        const distance = Math.abs(sectionCenter - windowCenter);
+        const opacity = Math.max(0.3, 1 - distance / window.innerHeight);
+        
+        section.style.opacity = opacity;
+    });
+});
+</script>
+
+</body>
+</html>
