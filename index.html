@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>Sedona Quantum Consciousness Retreat | Mark Szymczak</title>
     <style>
         * {
@@ -261,16 +263,185 @@
             50% { transform: translateY(-20px); }
         }
 
-        /* Mobile Responsive */
+        /* Mobile Responsive - Comprehensive Mobile-First Optimization */
         @media (max-width: 768px) {
-            h1 { font-size: 2.5rem; }
-            .subtitle { font-size: 1.1rem; }
+            * {
+                touch-action: manipulation;
+            }
+
+            html, body {
+                font-size: 16px; /* Minimum font size for readability */
+            }
+
+            body {
+                -webkit-user-select: none;
+                user-select: none;
+            }
+
+            .section {
+                min-height: 100vh;
+                /* Ensure full viewport coverage on mobile */
+                overflow: visible;
+            }
+
+            /* Viewport optimization */
+            #heroCanvas, #propertyCanvas, #experienceCanvas, #founderCanvas, 
+            #canyonCanvas, #desertCanvas, #techCanvas, #ctaCanvas {
+                width: 100% !important;
+                height: 100% !important;
+            }
+
+            h1 { 
+                font-size: 2rem;
+                padding: 0 1rem;
+                line-height: 1.2;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+                padding: 0 1rem;
+            }
+
+            .subtitle { 
+                font-size: 1rem;
+                padding: 0 1rem;
+                margin-bottom: 2rem;
+            }
+
+            /* Touch-friendly button sizing (minimum 44x44px) */
+            .cta-button {
+                padding: 1.2rem 2rem;
+                font-size: 1rem;
+                min-height: 48px;
+                min-width: 100%;
+                max-width: 90%;
+                display: inline-block;
+                border-radius: 12px;
+                margin: 0 auto;
+                -webkit-tap-highlight-color: transparent;
+                touch-action: manipulation;
+            }
+
+            .cta-button:active {
+                transform: scale(0.98);
+                box-shadow: 0 8px 25px rgba(160, 82, 45, 0.4);
+            }
+
+            .cta-button:focus {
+                outline: 3px solid #DAA520;
+                outline-offset: 2px;
+            }
+
+            /* Grid layouts - single column on mobile */
+            .property-grid, .founder-content {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                padding: 0 1rem;
+            }
+
+            .experience-grid, .tech-grid, .testimonial-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                padding: 0 1rem;
+            }
+
+            /* Card sizing for mobile */
+            .property-card, .experience-card, .tech-item, .testimonial-card {
+                padding: 1.5rem;
+                border-radius: 12px;
+                min-height: auto;
+                margin: 0;
+            }
+
+            .property-card h3, .experience-card h3, .tech-item h3 {
+                font-size: 1.3rem;
+                margin-bottom: 0.8rem;
+            }
+
+            .property-card p, .experience-card p, .tech-item p {
+                font-size: 1rem;
+                line-height: 1.6;
+            }
+
+            /* Founder section - portrait stacks on top */
+            .founder-content {
+                max-width: 100%;
+                padding: 1rem;
+            }
+
+            #founderCanvas3D {
+                width: 100%;
+                height: 250px;
+                margin-bottom: 1.5rem;
+                border-radius: 12px;
+                overflow: hidden;
+            }
+
+            .founder-text h2 {
+                font-size: 1.8rem;
+            }
+
+            .founder-text p {
+                font-size: 1rem;
+                line-height: 1.6;
+            }
+
+            /* Remove hover effects on mobile - use active/focus */
+            .property-card:hover,
+            .experience-card:hover,
+            .tech-item:hover,
+            .testimonial-card:hover {
+                transform: none;
+                box-shadow: 0 10px 30px rgba(160, 82, 45, 0.2);
+            }
+
+            .property-card:active,
+            .experience-card:active,
+            .tech-item:active,
+            .testimonial-card:active {
+                transform: scale(0.98);
+                box-shadow: 0 15px 35px rgba(160, 82, 45, 0.3);
+            }
+
+            /* Content padding */
+            .content {
+                padding: 2rem 1rem;
+                width: 100%;
+                max-width: 100%;
+            }
+
+            /* No horizontal scroll */
+            * {
+                max-width: 100%;
+                overflow-x: hidden;
+            }
+
+            /* Optimization: Reduce animations on low-end devices */
+            @media (prefers-reduced-motion: reduce) {
+                * {
+                    animation: none !important;
+                    transition: none !important;
+                }
+            }
+        }
+
+        /* Medium devices (tablets) */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            h1 { font-size: 3rem; }
+            h2 { font-size: 2rem; }
+            
             .property-grid, .founder-content {
                 grid-template-columns: 1fr;
             }
+
             .experience-grid, .tech-grid, .testimonial-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(2, 1fr);
             }
+        }
+
+        /* Desktop */
+        @media (min-width: 1025px) {
+            /* Default desktop styles apply */
         }
 
         /* Reduce motion */
@@ -458,17 +629,55 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
+// ===== MOBILE DETECTION & CONFIG =====
+const isMobile = window.matchMedia('(max-width: 768px)').matches;
+const isTablet = window.matchMedia('(max-width: 1024px) and (min-width: 769px)').matches;
+const isHighEnd = /iPhone|iPad|Android/.test(navigator.userAgent) && 
+                  parseInt(navigator.userAgent.match(/OS (\d+)/)?.[1] || 0) >= 14;
+
+const config = {
+    isMobile: isMobile,
+    isTablet: isTablet,
+    isHighEnd: isHighEnd,
+    // Particle counts - reduced for mobile
+    particleCount: isMobile ? 300 : (isTablet ? 500 : 800),
+    particleCountLarge: isMobile ? 500 : (isTablet ? 1000 : 2000),
+    // Shadow quality - reduced on mobile
+    shadowMapSize: isMobile ? 512 : 2048,
+    // Pixel ratio - cap on mobile to improve performance
+    pixelRatio: isMobile ? Math.min(window.devicePixelRatio, 1.5) : window.devicePixelRatio,
+    // FPS target: 30 on mobile, 60 on desktop
+    targetFPS: isMobile ? 30 : 60
+};
+
 // ===== UTILITY FUNCTIONS =====
 function createScene(canvasId, bgColor = 0x000000) {
     const canvas = document.getElementById(canvasId);
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 10000);
-    const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+    const rect = canvas.getBoundingClientRect();
+    const width = rect.width || window.innerWidth;
+    const height = rect.height || window.innerHeight;
     
-    renderer.setSize(window.innerWidth, window.innerHeight);
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 10000);
+    const renderer = new THREE.WebGLRenderer({ 
+        canvas, 
+        antialias: isMobile ? false : true,  // Disable antialias on mobile
+        alpha: true,
+        powerPreference: isMobile ? 'low-power' : 'high-performance'
+    });
+    
+    // Mobile-optimized rendering
+    renderer.setSize(width, height);
+    renderer.setPixelRatio(config.pixelRatio);
     renderer.setClearColor(bgColor, 1);
-    renderer.shadowMap.enabled = true;
-    renderer.shadowMap.type = THREE.PCFShadowShadowMap;
+    
+    // Reduce shadow quality on mobile
+    renderer.shadowMap.enabled = !isMobile;
+    if (!isMobile) {
+        renderer.shadowMap.type = THREE.PCFShadowShadowMap;
+        renderer.shadowMap.mapSize.width = config.shadowMapSize;
+        renderer.shadowMap.mapSize.height = config.shadowMapSize;
+    }
     
     scene.background = new THREE.Color(bgColor);
     
@@ -476,23 +685,33 @@ function createScene(canvasId, bgColor = 0x000000) {
 }
 
 function addLighting(scene, colors = {}) {
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+    const ambientLight = new THREE.AmbientLight(0xffffff, isMobile ? 0.7 : 0.6);
     scene.add(ambientLight);
     
-    const directionalLight = new THREE.DirectionalLight(colors.main || 0xffffff, 0.8);
-    directionalLight.position.set(10, 20, 10);
-    directionalLight.castShadow = true;
-    directionalLight.shadow.mapSize.width = 2048;
-    directionalLight.shadow.mapSize.height = 2048;
-    scene.add(directionalLight);
-    
-    if (colors.accent) {
-        const accentLight = new THREE.PointLight(colors.accent, 0.5);
-        accentLight.position.set(-10, 15, 5);
-        scene.add(accentLight);
+    // Reduce lighting complexity on mobile
+    if (!isMobile) {
+        const directionalLight = new THREE.DirectionalLight(colors.main || 0xffffff, 0.8);
+        directionalLight.position.set(10, 20, 10);
+        directionalLight.castShadow = true;
+        directionalLight.shadow.mapSize.width = config.shadowMapSize;
+        directionalLight.shadow.mapSize.height = config.shadowMapSize;
+        scene.add(directionalLight);
+        
+        if (colors.accent) {
+            const accentLight = new THREE.PointLight(colors.accent, 0.5);
+            accentLight.position.set(-10, 15, 5);
+            scene.add(accentLight);
+        }
+        
+        return { ambientLight, directionalLight };
+    } else {
+        // Mobile: single light only
+        const directionalLight = new THREE.DirectionalLight(colors.main || 0xffffff, 0.6);
+        directionalLight.position.set(5, 10, 5);
+        directionalLight.castShadow = false; // No shadows on mobile
+        scene.add(directionalLight);
+        return { ambientLight, directionalLight };
     }
-    
-    return { ambientLight, directionalLight };
 }
 
 // ===== HERO SECTION =====
@@ -502,8 +721,12 @@ function initHeroSection() {
     
     addLighting(scene, { main: 0xFF9800, accent: 0xDAA520 });
     
+    // Reduce geometry complexity on mobile
+    const coneSegments = isMobile ? 16 : 32;
+    const skySegments = isMobile ? 32 : 64;
+    
     // Create canyon mountains using THREE geometry
-    const mountainGeometry = new THREE.ConeGeometry(20, 40, 32);
+    const mountainGeometry = new THREE.ConeGeometry(20, 40, coneSegments);
     const mountainMaterial = new THREE.MeshStandardMaterial({ 
         color: 0xA0522D, 
         roughness: 0.8, 
@@ -511,19 +734,19 @@ function initHeroSection() {
     });
     const mountain1 = new THREE.Mesh(mountainGeometry, mountainMaterial);
     mountain1.position.set(-25, 5, -10);
-    mountain1.castShadow = true;
-    mountain1.receiveShadow = true;
+    mountain1.castShadow = !isMobile;
+    mountain1.receiveShadow = !isMobile;
     scene.add(mountain1);
     
     const mountain2 = new THREE.Mesh(mountainGeometry, mountainMaterial);
     mountain2.position.set(25, -5, -15);
     mountain2.scale.set(0.8, 1.2, 0.8);
-    mountain2.castShadow = true;
-    mountain2.receiveShadow = true;
+    mountain2.castShadow = !isMobile;
+    mountain2.receiveShadow = !isMobile;
     scene.add(mountain2);
     
     // Sky gradient (simulated with mesh)
-    const skyGeometry = new THREE.SphereGeometry(100, 64, 64);
+    const skyGeometry = new THREE.SphereGeometry(100, skySegments, skySegments);
     const skyMaterial = new THREE.MeshBasicMaterial({
         color: 0x2d1b4e,
         side: THREE.BackSide
@@ -531,9 +754,9 @@ function initHeroSection() {
     const sky = new THREE.Mesh(skyGeometry, skyMaterial);
     scene.add(sky);
     
-    // Particles for atmosphere
+    // Particles for atmosphere - reduced on mobile
     const particlesGeometry = new THREE.BufferGeometry();
-    const particlesCount = 500;
+    const particlesCount = config.particleCount;
     const posArray = new Float32Array(particlesCount * 3);
     
     for (let i = 0; i < particlesCount * 3; i += 3) {
@@ -552,7 +775,17 @@ function initHeroSection() {
     const particles = new THREE.Points(particlesGeometry, particlesMaterial);
     scene.add(particles);
     
+    // Touch & mouse input handlers
+    let touchX = 0, touchY = 0;
     let mouseX = 0, mouseY = 0;
+    
+    // Touch events (mobile)
+    document.addEventListener('touchmove', (e) => {
+        touchX = (e.touches[0].clientX / window.innerWidth) * 2 - 1;
+        touchY = (e.touches[0].clientY / window.innerHeight) * 2 - 1;
+    }, { passive: true });
+    
+    // Mouse events (desktop)
     document.addEventListener('mousemove', (e) => {
         mouseX = (e.clientX / window.innerWidth) * 2 - 1;
         mouseY = (e.clientY / window.innerHeight) * 2 - 1;
@@ -564,17 +797,20 @@ function initHeroSection() {
         
         time += 0.005;
         
-        // Subtle camera movement based on mouse
-        camera.position.x = mouseX * 3;
-        camera.position.y = -mouseY * 2;
+        // Only use input on desktop to save mobile performance
+        if (!isMobile) {
+            camera.position.x = mouseX * 3;
+            camera.position.y = -mouseY * 2;
+        }
         
-        // Rotate mountains
-        mountain1.rotation.z += 0.0001;
-        mountain2.rotation.z -= 0.00015;
+        // Rotate mountains - slower on mobile
+        const rotationSpeed = isMobile ? 0.00005 : 0.0001;
+        mountain1.rotation.z += rotationSpeed;
+        mountain2.rotation.z -= rotationSpeed * 1.5;
         
         // Animate particles
-        particles.rotation.z += 0.0001;
-        particles.rotation.x += 0.0001;
+        particles.rotation.z += rotationSpeed;
+        particles.rotation.x += rotationSpeed;
         
         // Pulsing light
         const light = scene.children.find(c => c.isLight && c.isDirectionalLight);
@@ -587,11 +823,16 @@ function initHeroSection() {
     
     animateHero();
     
-    // Handle window resize
+    // Handle window resize - throttled
+    let resizeTimeout;
     window.addEventListener('resize', () => {
-        camera.aspect = window.innerWidth / window.innerHeight;
-        camera.updateProjectionMatrix();
-        renderer.setSize(window.innerWidth, window.innerHeight);
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+            const rect = renderer.domElement.getBoundingClientRect();
+            camera.aspect = rect.width / rect.height;
+            camera.updateProjectionMatrix();
+            renderer.setSize(rect.width, rect.height);
+        }, 250);
     });
 }
 
@@ -608,8 +849,11 @@ function initFounderSection() {
     // Abstract consciousness visualization (floating geometric shapes)
     const shapes = [];
     
+    // Reduce geometry complexity on mobile
+    const icoDetail = isMobile ? 2 : 4;
+    
     // Create rotating icosahedron (consciousness symbol)
-    const icoGeometry = new THREE.IcosahedronGeometry(5, 4);
+    const icoGeometry = new THREE.IcosahedronGeometry(5, icoDetail);
     const icoMaterial = new THREE.MeshStandardMaterial({ 
         color: 0xDAA520,
         emissive: 0xDAA520,
@@ -619,12 +863,14 @@ function initFounderSection() {
     });
     const ico = new THREE.Mesh(icoGeometry, icoMaterial);
     ico.position.set(0, 0, -5);
+    ico.castShadow = !isMobile;
+    ico.receiveShadow = !isMobile;
     scene.add(ico);
     shapes.push(ico);
     
-    // Floating particles around founder portrait
+    // Floating particles around founder portrait - reduced on mobile
     const particlesGeometry = new THREE.BufferGeometry();
-    const particlesCount = 800;
+    const particlesCount = isMobile ? 300 : 800;
     const posArray = new Float32Array(particlesCount * 3);
     
     for (let i = 0; i < particlesCount * 3; i += 3) {
@@ -644,18 +890,21 @@ function initFounderSection() {
     scene.add(particles);
     
     let time = 0;
+    let lastFrameTime = Date.now();
+    let frameCount = 0;
+    
     function animateFounder() {
         requestAnimationFrame(animateFounder);
         
-        time += 0.003;
+        time += isMobile ? 0.002 : 0.003;
         
-        // Rotate main shape
-        ico.rotation.x += 0.002;
-        ico.rotation.y += 0.003;
+        // Rotate main shape - slower on mobile
+        ico.rotation.x += isMobile ? 0.001 : 0.002;
+        ico.rotation.y += isMobile ? 0.0015 : 0.003;
         ico.position.y = Math.sin(time * 2) * 2;
         
         // Orbit smaller shapes around center
-        particles.rotation.z += 0.0005;
+        particles.rotation.z += isMobile ? 0.00025 : 0.0005;
         
         renderer.render(scene, camera);
     }
@@ -684,23 +933,25 @@ function initCanyonSection() {
         metalness: 0.3
     });
     const mainStructure = new THREE.Mesh(mainGeometry, mainMaterial);
-    mainStructure.castShadow = true;
-    mainStructure.receiveShadow = true;
+    mainStructure.castShadow = !isMobile;
+    mainStructure.receiveShadow = !isMobile;
     buildingGroup.add(mainStructure);
     
     // Roof
-    const roofGeometry = new THREE.ConeGeometry(12, 5, 4);
+    const roofSegments = isMobile ? 4 : 8;
+    const roofGeometry = new THREE.ConeGeometry(12, 5, roofSegments);
     const roofMaterial = new THREE.MeshStandardMaterial({
         color: 0x8B4513,
         roughness: 0.7
     });
     const roof = new THREE.Mesh(roofGeometry, roofMaterial);
     roof.position.y = 12;
-    roof.castShadow = true;
+    roof.castShadow = !isMobile;
     buildingGroup.add(roof);
     
-    // Windows
-    for (let i = 0; i < 3; i++) {
+    // Windows - fewer on mobile
+    const windowCount = isMobile ? 1 : 3;
+    for (let i = 0; i < windowCount; i++) {
         const windowGeometry = new THREE.PlaneGeometry(2, 2);
         const windowMaterial = new THREE.MeshStandardMaterial({
             color: 0xFFA500,
@@ -724,17 +975,17 @@ function initCanyonSection() {
     const ground = new THREE.Mesh(groundGeometry, groundMaterial);
     ground.rotation.x = -Math.PI / 2;
     ground.position.y = -15;
-    ground.receiveShadow = true;
+    ground.receiveShadow = !isMobile;
     scene.add(ground);
     
     let time = 0;
     function animateCanyon() {
         requestAnimationFrame(animateCanyon);
         
-        time += 0.005;
+        time += isMobile ? 0.002 : 0.005;
         
-        // Subtle rotation
-        buildingGroup.rotation.y += 0.0005;
+        // Subtle rotation - slower on mobile
+        buildingGroup.rotation.y += isMobile ? 0.00025 : 0.0005;
         buildingGroup.position.y = Math.sin(time) * 1;
         
         renderer.render(scene, camera);
@@ -763,13 +1014,15 @@ function initDesertSection() {
     const pool = new THREE.Mesh(poolGeometry, poolMaterial);
     pool.rotation.x = -Math.PI / 4;
     pool.position.set(0, 0, -10);
-    pool.castShadow = true;
-    pool.receiveShadow = true;
+    pool.castShadow = !isMobile;
+    pool.receiveShadow = !isMobile;
     scene.add(pool);
     
-    // Landscape elements (trees represented as cones)
-    for (let i = 0; i < 5; i++) {
-        const treeGeometry = new THREE.ConeGeometry(3, 8, 8);
+    // Landscape elements (trees) - fewer on mobile
+    const treeCount = isMobile ? 2 : 5;
+    const treeSegments = isMobile ? 4 : 8;
+    for (let i = 0; i < treeCount; i++) {
+        const treeGeometry = new THREE.ConeGeometry(3, 8, treeSegments);
         const treeMaterial = new THREE.MeshStandardMaterial({ color: 0x228B22 });
         const tree = new THREE.Mesh(treeGeometry, treeMaterial);
         tree.position.set(
@@ -777,7 +1030,7 @@ function initDesertSection() {
             0,
             -15 - Math.random() * 20
         );
-        tree.castShadow = true;
+        tree.castShadow = !isMobile;
         scene.add(tree);
     }
     
@@ -790,17 +1043,19 @@ function initDesertSection() {
     const ground = new THREE.Mesh(groundGeometry, groundMaterial);
     ground.rotation.x = -Math.PI / 2;
     ground.position.y = -10;
-    ground.receiveShadow = true;
+    ground.receiveShadow = !isMobile;
     scene.add(ground);
     
     let time = 0;
     function animateDesert() {
         requestAnimationFrame(animateDesert);
         
-        time += 0.003;
+        time += isMobile ? 0.0015 : 0.003;
         
-        // Water ripple effect
-        pool.material.roughness = 0.1 + 0.05 * Math.sin(time * 3);
+        // Water ripple effect - less frequent on mobile
+        const rippleIntensity = isMobile ? 0.03 : 0.05;
+        const rippleSpeed = isMobile ? 2 : 3;
+        pool.material.roughness = 0.1 + rippleIntensity * Math.sin(time * rippleSpeed);
         
         renderer.render(scene, camera);
     }
@@ -818,13 +1073,15 @@ function initTechSection() {
     
     addLighting(scene, { main: 0xDAA520, accent: 0xA0522D });
     
-    // Tech items as rotating cubes/spheres
+    // Tech items - fewer on mobile
     const items = [];
+    const itemCount = isMobile ? 1 : 3;
+    const icoDetail = isMobile ? 1 : 2;
     
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < itemCount; i++) {
         const geometry = i % 2 === 0 ? 
             new THREE.BoxGeometry(5, 5, 5) : 
-            new THREE.IcosahedronGeometry(3, 2);
+            new THREE.IcosahedronGeometry(3, icoDetail);
         
         const material = new THREE.MeshStandardMaterial({
             color: i % 2 === 0 ? 0xDAA520 : 0xA0522D,
@@ -836,8 +1093,8 @@ function initTechSection() {
         
         const mesh = new THREE.Mesh(geometry, material);
         mesh.position.set(-15 + i * 15, 0, 0);
-        mesh.castShadow = true;
-        mesh.receiveShadow = true;
+        mesh.castShadow = !isMobile;
+        mesh.receiveShadow = !isMobile;
         scene.add(mesh);
         items.push(mesh);
     }
@@ -846,11 +1103,13 @@ function initTechSection() {
     function animateTech() {
         requestAnimationFrame(animateTech);
         
-        time += 0.005;
+        time += isMobile ? 0.0025 : 0.005;
         
         items.forEach((item, index) => {
-            item.rotation.x += 0.01;
-            item.rotation.y += 0.015;
+            const rotSpeedX = isMobile ? 0.005 : 0.01;
+            const rotSpeedY = isMobile ? 0.0075 : 0.015;
+            item.rotation.x += rotSpeedX;
+            item.rotation.y += rotSpeedY;
             item.position.y = Math.sin(time + index) * 3;
         });
         
@@ -870,9 +1129,9 @@ function initCtaSection() {
     
     addLighting(scene, { main: 0xDAA520, accent: 0xA0522D });
     
-    // Massive particle field
+    // Particle field - significantly reduced on mobile
     const particlesGeometry = new THREE.BufferGeometry();
-    const particlesCount = 2000;
+    const particlesCount = config.particleCountLarge;  // 500 mobile, 2000 desktop
     const posArray = new Float32Array(particlesCount * 3);
     const colorArray = new Float32Array(particlesCount * 3);
     
@@ -899,8 +1158,9 @@ function initCtaSection() {
     const particles = new THREE.Points(particlesGeometry, particlesMaterial);
     scene.add(particles);
     
-    // Central glowing sphere
-    const sphereGeometry = new THREE.SphereGeometry(10, 32, 32);
+    // Central glowing sphere - reduced detail on mobile
+    const sphereSegments = isMobile ? 16 : 32;
+    const sphereGeometry = new THREE.SphereGeometry(10, sphereSegments, sphereSegments);
     const sphereMaterial = new THREE.MeshStandardMaterial({
         color: 0xDAA520,
         emissive: 0xDAA520,
@@ -909,16 +1169,19 @@ function initCtaSection() {
         roughness: 0.3
     });
     const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
+    sphere.castShadow = !isMobile;
+    sphere.receiveShadow = !isMobile;
     scene.add(sphere);
     
     let time = 0;
     function animateCta() {
         requestAnimationFrame(animateCta);
         
-        time += 0.003;
+        time += isMobile ? 0.002 : 0.003;
         
-        particles.rotation.x += 0.0002;
-        particles.rotation.y += 0.0003;
+        // Slower rotation on mobile
+        particles.rotation.x += isMobile ? 0.0001 : 0.0002;
+        particles.rotation.y += isMobile ? 0.00015 : 0.0003;
         
         sphere.scale.set(
             1 + 0.3 * Math.sin(time),
@@ -942,13 +1205,15 @@ function initExperienceSection() {
     
     addLighting(scene, { main: 0xA0522D, accent: 0xDAA520 });
     
-    // Floating cards (represented as boxes)
+    // Floating cards (represented as boxes) - simplified on mobile
     const cards = [];
-    const positions = [
-        { x: -20, y: 10, z: 0 },
-        { x: 0, y: 15, z: 5 },
-        { x: 20, y: 10, z: -5 }
-    ];
+    const positions = isMobile ? 
+        [{ x: 0, y: 10, z: 0 }] :  // 1 card on mobile
+        [
+            { x: -20, y: 10, z: 0 },
+            { x: 0, y: 15, z: 5 },
+            { x: 20, y: 10, z: -5 }
+        ];
     
     positions.forEach((pos, index) => {
         const geometry = new THREE.BoxGeometry(6, 6, 1);
@@ -961,8 +1226,8 @@ function initExperienceSection() {
         });
         const card = new THREE.Mesh(geometry, material);
         card.position.set(pos.x, pos.y, pos.z);
-        card.castShadow = true;
-        card.receiveShadow = true;
+        card.castShadow = !isMobile;
+        card.receiveShadow = !isMobile;
         scene.add(card);
         cards.push({ mesh: card, baseY: pos.y });
     });
@@ -971,11 +1236,14 @@ function initExperienceSection() {
     function animateExperience() {
         requestAnimationFrame(animateExperience);
         
-        time += 0.004;
+        time += isMobile ? 0.002 : 0.004;
         
         cards.forEach((card, index) => {
-            card.mesh.rotation.x += 0.008;
-            card.mesh.rotation.y += 0.012;
+            // Slower rotation on mobile
+            const rotationSpeedX = isMobile ? 0.004 : 0.008;
+            const rotationSpeedY = isMobile ? 0.006 : 0.012;
+            card.mesh.rotation.x += rotationSpeedX;
+            card.mesh.rotation.y += rotationSpeedY;
             card.mesh.position.y = card.baseY + Math.sin(time + index) * 2;
         });
         
@@ -996,22 +1264,30 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
     
-    // Initialize all sections with staggered timing
+    // Initialize all sections with staggered timing - faster on mobile
+    const delay = isMobile ? 50 : 100;
     initHeroSection();
-    setTimeout(() => initFounderSection(), 100);
-    setTimeout(() => initCanyonSection(), 200);
-    setTimeout(() => initDesertSection(), 300);
-    setTimeout(() => initExperienceSection(), 350);
-    setTimeout(() => initTechSection(), 400);
-    setTimeout(() => initCtaSection(), 500);
+    setTimeout(() => initFounderSection(), delay);
+    setTimeout(() => initCanyonSection(), delay * 2);
+    setTimeout(() => initDesertSection(), delay * 3);
+    setTimeout(() => initExperienceSection(), delay * 3.5);
+    setTimeout(() => initTechSection(), delay * 4);
+    setTimeout(() => initCtaSection(), delay * 5);
 });
 
-// Scroll animations
+// Optimized scroll animations - throttled for performance
+let lastScrollTime = 0;
+const scrollThrottle = isMobile ? 100 : 50;
+
 window.addEventListener('scroll', () => {
+    const now = Date.now();
+    if (now - lastScrollTime < scrollThrottle) return;
+    lastScrollTime = now;
+    
     const scrolled = window.scrollY;
     const sections = document.querySelectorAll('.section');
     
-    sections.forEach((section, index) => {
+    sections.forEach((section) => {
         const sectionTop = section.offsetTop;
         const sectionHeight = section.offsetHeight;
         const sectionCenter = sectionTop + sectionHeight / 2;
@@ -1022,7 +1298,7 @@ window.addEventListener('scroll', () => {
         
         section.style.opacity = opacity;
     });
-});
+}, { passive: true });
 </script>
 
 </body>
